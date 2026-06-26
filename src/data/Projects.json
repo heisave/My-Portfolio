@@ -1,0 +1,45 @@
+
+ [
+  {
+    "title": "Restaurant Management Web App",
+    "description":
+      "Restaurant website featuring a dynamic menu carousel and customer contact system.",
+    "tech": ["React", "JavaScript", "Fetch API"],
+    "github": "https://github.com/heisave",
+    "live": "https://ave-restaurant-website-36og.vercel.app/",
+    "highlights": [
+      "Implemented a card carousel using Fetch API to preview restaurant menu items.",
+      "Built a contact form to enable direct communication with customers.",
+      "Designed a responsive and modern landing page experience."
+    ]
+  },
+
+  {
+    "title": "Aniverse",
+    "description":
+      "Movie streaming platform landing page focused on content discovery and engagement.",
+    "tech": ["HTML", "CSS", "JavaScript", "Fetch API"],
+    "github": "https://github.com/heisave/Aniverse",
+    "live": "https://aniverse-project.web.app/",
+    "highlights": [
+      "Created an engaging movie streaming landing page.",
+      "Built a dynamic movie carousel powered by Fetch API.",
+      "Improved browsing experience and user engagement."
+    ]
+  },
+
+  {
+    "title": "MFM Church Website",
+    "description":
+      "Modern church website with dynamic events, navigation, and communication features.",
+    "tech": ["React", "React Router", "JavaScript", "Fetch API"],
+    "github": "https://github.com/heisave/Movie-Platform-App",
+    "live": "http://mfm-website-sand.vercel.app/",
+    "highlights": [
+      "Built a modern React landing page for improved visitor experience.",
+      "Added a dynamic event carousel using Fetch API.",
+      "Implemented React Router navigation for smooth page transitions.",
+      "Created Prayer Request and Contact forms for member communication."
+    ]
+  }
+]
