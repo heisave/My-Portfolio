@@ -42,13 +42,12 @@ const Navbar = () => {
 </ul>
 
         {/* CTA */}
-        <Link
-          to="/contact"
-          className="hidden md:flex items-center px-5 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-black transition duration-300"
-        >
-          Hire Me
-        </Link>
-
+   <Link
+  to="/contact"
+  className="hidden md:flex items-center px-5 py-2 rounded-xl bg-cyan-500 text-white transition-transform duration-200 hover:scale-105"
+>
+  Hire Me
+</Link>
       </nav>
     </header>
   );
