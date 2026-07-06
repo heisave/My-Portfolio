@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center px-6 py-24">
+    <section className="min-h-screen flex items-center px-6 py-24 mt-5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         {/* Left */}
@@ -37,14 +37,14 @@ const Hero = () => {
 
         {/* Right */}
         <div className="flex justify-center">
-          <div className="w-full max-w-sm md:max-w-md lg:max-w-lg rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
-            <img
-              src="src/assets/my-pic.jpg"
-              alt="Victor"
-              className="w-full rounded-2xl object-cover"
-            />
-          </div>
-        </div>
+  <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-cyan-500 bg-zinc-900 ">
+    <img
+      src="/src/assets/my-pic.jpg"
+      alt="Victor"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
 
       </div>
     </section>
