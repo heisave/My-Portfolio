@@ -10,15 +10,15 @@ function App() {
 
   return (
     <>
-    <div className="m-0">
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/skill" element={<Skills/>}/>
-      <Route path="/contact" element={<Contact/>}/>
-      <Route path="/about" element={<About/>}/>
-      <Route path="/projects" element={<Projects/>}/>
-    </Routes>
-     </div>
+    <div className="m-0 overflow-x-hidden">
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/skill" element={<Skills />} />
+    <Route path="/contact" element={<Contact />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/projects" element={<Projects />} />
+  </Routes>
+</div>
     </>
   )
 }
