@@ -40,7 +40,7 @@ ${message}`;
             <span className="text-cyan-400"> Let's talk.</span>
           </h2>
 
-          <p className="mt-6 text-zinc-400 text-lg max-w-xl leading-relaxed">
+          <p className="mt-6 text-zinc-600 text-lg max-w-xl leading-relaxed">
             Whether it's a project, collaboration, internship opportunity, or
             just a conversation about tech and creativity, feel free to reach
             out.
@@ -49,7 +49,7 @@ ${message}`;
           <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-8">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
-                <h3 className="text-xl font-semibold text-black">
+                <h3 className="text-xl font-semibold text-blue-500 border rounded-3xl p-2">
                   Contact Details
                 </h3>
 
