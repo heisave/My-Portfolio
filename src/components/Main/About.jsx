@@ -5,7 +5,7 @@ const About = () => {
     <>
       <Navbar />
 
-      <section className="px-6 py-24 pt-34">
+      <section className="px-6 py-24 pt-34 m-0">
         <div className="max-w-7xl mx-auto relative">
 
           <div className="absolute -top-10 -right-10 w-72 h-72 bg-cyan-500/10 blur-3xl"></div>

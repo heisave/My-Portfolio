@@ -43,8 +43,9 @@ const Skills = () => {
   const active = categories.find((c) => c.id === activeId);
 
   return (
+    <>
+    <Navbar/>
     <section className="px-6 py-24">
-        <Navbar/>
       <div className="max-w-7xl mx-auto relative mt-5">
 
         <div className="absolute -top-10 -right-10 w-72 h-72 bg-cyan-500/10 blur-3xl"></div>
@@ -105,6 +106,7 @@ const Skills = () => {
 
       </div>
     </section>
+    </>
   );
 };
 
