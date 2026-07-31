@@ -47,7 +47,7 @@
   "description": "A fun and interactive web app that lets users create a personalized 'Will you go out with me?' page and receive the recipient's Yes or No response through WhatsApp.",
   "tech": ["HTML", "Tailwind CSS", "JavaScript", "WhatsApp API"],
   "github": "https://github.com/heisave/Askout_app",
-  "live": "https://your-askout-app.vercel.app/",
+  "live": "https://askoutapp-three.vercel.app/",
   "highlights": [
     "Built a personalized proposal page using URL parameters to display the recipient's name.",
     "Integrated WhatsApp sharing so recipients can instantly send their Yes or No response.",
