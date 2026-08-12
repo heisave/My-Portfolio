@@ -1,9 +1,7 @@
-
- [
+[
   {
     "title": "Restaurant Management Web App",
-    "description":
-      "Restaurant website featuring a dynamic menu carousel and customer contact system.",
+    "description": "Restaurant website featuring a dynamic menu carousel and customer contact system.",
     "tech": ["React", "JavaScript", "Fetch API"],
     "github": "https://github.com/heisave",
     "live": "https://ave-restaurant-website-36og.vercel.app/",
@@ -16,8 +14,7 @@
 
   {
     "title": "Aniverse",
-    "description":
-      "Movie streaming platform landing page focused on content discovery and engagement.",
+    "description": "Movie streaming platform landing page focused on content discovery and engagement.",
     "tech": ["HTML", "CSS", "JavaScript", "Fetch API"],
     "github": "https://github.com/heisave/Aniverse",
     "live": "https://aniverse-project.web.app/",
@@ -30,8 +27,7 @@
 
   {
     "title": "MFM Church Website",
-    "description":
-      "Modern church website with dynamic events, navigation, and communication features.",
+    "description": "Modern church website with dynamic events, navigation, and communication features.",
     "tech": ["React", "React Router", "JavaScript", "Fetch API"],
     "github": "https://github.com/heisave/Movie-Platform-App",
     "live": "http://mfm-website-sand.vercel.app/",
@@ -42,17 +38,33 @@
       "Created Prayer Request and Contact forms for member communication."
     ]
   },
+
   {
-  "title": "AskOut App",
-  "description": "A fun and interactive web app that lets users create a personalized 'Will you go out with me?' page and receive the recipient's Yes or No response through WhatsApp.",
-  "tech": ["HTML", "Tailwind CSS", "JavaScript", "WhatsApp API"],
-  "github": "https://github.com/heisave/Askout_app",
-  "live": "https://askoutapp-three.vercel.app/",
-  "highlights": [
-    "Built a personalized proposal page using URL parameters to display the recipient's name.",
-    "Integrated WhatsApp sharing so recipients can instantly send their Yes or No response.",
-    "Added an international country code selector for phone numbers to support users worldwide.",
-    "Designed a fully responsive interface with Tailwind CSS for a smooth experience on mobile and desktop."
-  ]
-}
+    "title": "AskOut App",
+    "description": "A fun and interactive web app that lets users create a personalized 'Will you go out with me?' page and receive the recipient's Yes or No response through WhatsApp.",
+    "tech": ["HTML", "Tailwind CSS", "JavaScript", "WhatsApp API"],
+    "github": "https://github.com/heisave/Askout_app",
+    "live": "https://askoutapp-three.vercel.app/",
+    "highlights": [
+      "Built a personalized proposal page using URL parameters to display the recipient's name.",
+      "Integrated WhatsApp sharing so recipients can instantly send their Yes or No response.",
+      "Added an international country code selector for phone numbers to support users worldwide.",
+      "Designed a fully responsive interface with Tailwind CSS for a smooth experience on mobile and desktop."
+    ]
+  },
+
+  {
+    "title": "NEPA Log",
+    "description": "Electricity tracking web app that lets users manually log when power comes ON or OFF and view their power history.",
+    "tech": ["React", "JavaScript", "Tailwind CSS", "LocalStorage", "Recharts", "Lucide React"],
+    "github": "https://github.com/heisave/Nepa_Log",
+    "live": "https://nepa-log.vercel.app/",
+    "highlights": [
+      "Built an interactive interface for manually tracking electricity availability.",
+      "Implemented LocalStorage to persist power logs across browser sessions.",
+      "Added real-time ON and OFF status tracking with timestamped logs.",
+      "Created power usage statistics and visualized electricity history with Recharts.",
+      "Designed a responsive dark-themed interface using Tailwind CSS."
+    ]
+  }
 ]
