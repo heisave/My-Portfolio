@@ -31,7 +31,7 @@ const categories = [
     label: 'Creative & Content',
     skills: [
       { name: 'Video Editing', level: 'Comfortable' },
-      { name: 'VN Video Editor', level: 'Comfortable' },
+      { name: 'Capcut Video Editor', level: 'Comfortable' },
       { name: 'Content Strategy', level: 'Comfortable' },
       { name: 'Social Storytelling', level: 'Leveling up' },
     ],
@@ -59,10 +59,7 @@ const Skills = () => {
           <span className="text-cyan-400"> build things.</span>
         </h2>
 
-        <p className="mt-6 text-zinc-400 text-lg max-w-xl leading-relaxed">
-          A mix of code, client communication, and creative tools — built through real
-          projects, a couple of certifications, and a lot of practice.
-        </p>
+      
 
         {/* Category tabs */}
         <div className="mt-10 flex flex-wrap gap-3">

@@ -15,9 +15,7 @@ const Hero = () => {
           </h1>
 
           <p className="mt-6 text-zinc-700 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            Frontend developer from Nigeria building modern web products with
-            React and JavaScript. I combine code, design, and creativity to
-            create experiences people enjoy using.
+           Frontend developer from Nigeria specializing in React and JavaScript. I build responsive, production-focused web interfaces with a strong eye for usability, clean code, and detail. Experienced in real-world development, team collaboration, Git workflows, and shipping projects from idea to deployment.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

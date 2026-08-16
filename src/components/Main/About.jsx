@@ -19,11 +19,7 @@ const About = () => {
             <span className="text-cyan-400"> code & creativity.</span>
           </h2>
 
-          <p className="mt-6 text-zinc-400 text-lg max-w-2xl leading-relaxed">
-            I'm Victor, a frontend developer and creative editor from
-            Nigeria. I enjoy building modern web experiences that blend
-            clean design, smooth interactions, and real-world functionality.
-          </p>
+         
 
           <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-8">
             <div className="grid md:grid-cols-2 gap-6">
@@ -33,55 +29,61 @@ const About = () => {
                   Quick Facts
                 </h3>
 
-                <div className="mt-6 space-y-4">
-                  <div>
-                    <p className="text-zinc-500 text-sm">Role</p>
-                    <p className="text-black font-medium">
-                      Frontend Developer
-                    </p>
-                  </div>
+               <div className="mt-6 space-y-4">
+  <div>
+    <p className="text-zinc-500 text-sm">Role</p>
+    <p className="text-black font-medium">
+      Frontend Developer
+    </p>
+  </div>
 
-                  <div>
-                    <p className="text-zinc-500 text-sm">Stack</p>
-                    <p className="text-black font-medium">
-                      JavaScript, React, Tailwind, Node.js
-                    </p>
-                  </div>
+  <div>
+    <p className="text-zinc-500 text-sm">Core Skills</p>
+    <p className="text-black font-medium">
+      React, JavaScript, Tailwind CSS, Git
+    </p>
+  </div>
 
-                  <div>
-                    <p className="text-zinc-500 text-sm">Location</p>
-                    <p className="text-black font-medium">
-                      Nigeria
-                    </p>
-                  </div>
+  <div>
+    <p className="text-zinc-500 text-sm">Experience</p>
+    <p className="text-black font-medium">
+      Real-world & Team Development
+    </p>
+  </div>
 
-                  <div>
-                    <p className="text-zinc-500 text-sm">Focus</p>
-                    <p className="text-black font-medium">
-                      Building modern digital products
-                    </p>
-                  </div>
-                </div>
+  <div>
+    <p className="text-zinc-500 text-sm">Currently Learning</p>
+    <p className="text-black font-medium">
+      Backend Development & Next.js
+    </p>
+  </div>
+</div>
               </div>
 
               <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
                 <h3 className="text-xl font-semibold text-black">
                   My Story
                 </h3>
+<p className="mt-4 text-zinc-600 leading-relaxed">
+  I didn’t start with a clear plan to become a developer. I started by
+  wanting to understand how things on the web were actually built. That
+  curiosity turned into writing code, breaking things, fixing them, and
+  eventually building products of my own.
+</p>
 
-                <p className="mt-4 text-zinc-600 leading-relaxed">
-                  I started my journey with a curiosity for technology
-                  and quickly fell in love with creating things on the
-                  web. Today, I focus on building responsive interfaces,
-                  learning backend development, and improving my skills
-                  through real-world projects.
-                </p>
+<p className="mt-4 text-zinc-600 leading-relaxed">
+  Today, I’m focused on frontend development with React and JavaScript. I’ve
+  worked on real projects, collaborated with developers, used Git in team
+  workflows, and shipped products that people can actually open and use.
+  I’m now pushing beyond frontend and learning backend development so I can
+  understand more of what happens behind the interface.
+</p>
 
-                <p className="mt-4 text-zinc-600 leading-relaxed">
-                  My goal is to create products that are useful, visually
-                  appealing, and impactful while continuously growing as
-                  a developer and creator.
-                </p>
+<p className="mt-4 text-zinc-600 leading-relaxed">
+  I’m looking for opportunities where I can contribute to a real team, take
+  on meaningful problems, and keep getting better through actual engineering
+  work.
+</p>
               </div>
 
             </div>
