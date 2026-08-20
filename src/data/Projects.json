@@ -1,18 +1,5 @@
 [
   {
-    "title": "Restaurant Management Web App",
-    "description": "Restaurant website featuring a dynamic menu carousel and customer contact system.",
-    "tech": ["React", "JavaScript", "Fetch API"],
-    "github": "https://github.com/heisave",
-    "live": "https://ave-restaurant-website-36og.vercel.app/",
-    "highlights": [
-      "Implemented a card carousel using Fetch API to preview restaurant menu items.",
-      "Built a contact form to enable direct communication with customers.",
-      "Designed a responsive and modern landing page experience."
-    ]
-  },
-
-  {
     "title": "Aniverse",
     "description": "Movie streaming platform landing page focused on content discovery and engagement.",
     "tech": ["HTML", "CSS", "JavaScript", "Fetch API"],
@@ -65,6 +52,20 @@
       "Added real-time ON and OFF status tracking with timestamped logs.",
       "Created power usage statistics and visualized electricity history with Recharts.",
       "Designed a responsive dark-themed interface using Tailwind CSS."
+    ]
+  },
+
+  {
+    "title": "Meridian STEM Academy — School Landing Page",
+    "description": "School landing page concept featuring a live class-schedule strip that shows what period is happening in real time.",
+    "tech": ["React", "TypeScript", "Tailwind CSS"],
+    "github": "https://github.com/heisave/School-LandingPage",
+    "live": "https://school-landing-page-gamma.vercel.app/",
+    "highlights": [
+      "Designed a signature live schedule strip that reads the visitor's clock and highlights the current class period.",
+      "Built a fully responsive layout including a slide-down mobile navigation menu.",
+      "Structured content into a separate JSON data file for easy editing without touching component code.",
+      "Used scroll-triggered reveal animations with reduced-motion support for accessibility."
     ]
   }
 ]
