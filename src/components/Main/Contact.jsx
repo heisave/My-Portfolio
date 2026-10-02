@@ -1,6 +1,49 @@
+import { useState } from "react";
 import Navbar from "../Other/Navbar";
+import Reveal from "../ui/Reveal";
+import SectionHeading from "../ui/SectionHeading";
+import {
+  MailIcon,
+  MapPinIcon,
+  GithubIcon,
+  LinkedinIcon,
+  SendIcon,
+  WhatsappIcon,
+} from "../ui/Icons";
+
+const contactLinks = [
+  {
+    label: "Email",
+    value: "akpanvictor456@gmail.com",
+    href: "mailto:akpanvictor456@gmail.com",
+    Icon: MailIcon,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/heisave",
+    href: "https://github.com/heisave",
+    Icon: GithubIcon,
+  },
+  {
+    label: "LinkedIn",
+    value: "Connect on LinkedIn",
+    href: "https://www.linkedin.com/",
+    Icon: LinkedinIcon,
+  },
+  {
+    label: "Location",
+    value: "Nigeria · Remote friendly",
+    href: null,
+    Icon: MapPinIcon,
+  },
+];
+
+const fieldCls =
+  "w-full rounded-xl border border-hairline bg-white/[0.03] px-4 py-3.5 text-[15px] text-ice placeholder:text-mist/60 outline-none transition-all duration-300 focus:border-glow-cyan/60 focus:bg-white/[0.05] focus:shadow-[0_0_0_4px_rgba(34,211,238,0.12)]";
 
 const Contact = () => {
+  const [sent, setSent] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -21,93 +64,173 @@ ${message}`;
     )}`;
 
     window.open(whatsappUrl, "_blank");
+    setSent(true);
+    e.target.reset();
+    setTimeout(() => setSent(false), 4000);
   };
 
   return (
     <>
       <Navbar />
 
-      <section className="px-6 py-24 pt-34">
-        <div className="max-w-7xl mx-auto relative">
-          <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-cyan-500/10 blur-3xl"></div>
+      <section className="px-6 pb-24 pt-36">
+        <div className="relative mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Contact • Let's connect"
+            title="Have an idea?"
+            accent="Let's talk."
+            lead="Whether it's a project, collaboration, internship opportunity, or just a conversation about tech and creativity — feel free to reach out."
+          />
 
-          <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-sm border border-cyan-500/20">
-            Contact • Let's connect
-          </span>
-
-          <h2 className="mt-6 text-4xl md:text-5xl font-bold leading-tight text-black">
-            Have an idea?
-            <span className="text-cyan-400"> Let's talk.</span>
-          </h2>
-
-          <p className="mt-6 text-zinc-600 text-lg max-w-xl leading-relaxed">
-            Whether it's a project, collaboration, internship opportunity, or
-            just a conversation about tech and creativity, feel free to reach
-            out.
-          </p>
-
-          <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-8">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
-                <h3 className="text-xl font-semibold text-blue-500 border rounded-3xl p-2">
+          <div className="mt-14 grid gap-6 lg:grid-cols-12">
+            {/* Details */}
+            <Reveal as="div" variant="left" className="space-y-6 lg:col-span-5">
+              <div className="card-glow rounded-3xl p-7">
+                <h3 className="font-display text-lg font-bold text-ice">
                   Contact Details
                 </h3>
 
-                <div className="mt-6 space-y-4">
-                  <div>
-                    <p className="text-zinc-500 text-sm">Email</p>
-                    <p className="text-black font-medium">
-                      akpanvictor456@gmail.com
-                    </p>
-                  </div>
+                <ul className="mt-6 space-y-3">
+                  {contactLinks.map(({ label, value, href, Icon }) => {
+                    const inner = (
+                      <span className="flex items-center gap-4">
+                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-hairline bg-white/[0.03] text-glow-cyan transition-all duration-300 group-hover:border-glow-cyan/50 group-hover:bg-glow-cyan/10">
+                          <Icon className="h-[18px] w-[18px]" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-mist/70">
+                            {label}
+                          </span>
+                          <span className="block truncate text-sm font-medium text-ice transition-colors duration-300 group-hover:text-glow-cyan">
+                            {value}
+                          </span>
+                        </span>
+                      </span>
+                    );
 
-                  <div>
-                    <p className="text-zinc-500 text-sm">Location</p>
-                    <p className="text-black font-medium">Nigeria</p>
-                  </div>
-
-                  <div>
-                    <p className="text-zinc-500 text-sm">GitHub</p>
-                    <p className="text-black font-medium">
-                      https://github.com/heisave
-                    </p>
-                  </div>
-                </div>
+                    return (
+                      <li key={label}>
+                        {href ? (
+                          <a
+                            href={href}
+                            target={href.startsWith("http") ? "_blank" : undefined}
+                            rel="noreferrer noopener"
+                            className="group flex items-center rounded-2xl border border-transparent p-2 transition-colors duration-300 hover:border-hairline hover:bg-white/[0.03]"
+                          >
+                            {inner}
+                          </a>
+                        ) : (
+                          <div className="group flex items-center rounded-2xl p-2">
+                            {inner}
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
 
-              <form className="space-y-4" onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  className="w-full rounded-xl border border-zinc-200 px-4 py-3 outline-none focus:border-cyan-400"
-                  required
-                />
-
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  className="w-full rounded-xl border border-zinc-200 px-4 py-3 outline-none focus:border-cyan-400"
-                  required
-                />
-
-                <textarea
-                  rows="5"
-                  name="message"
-                  placeholder="Your Message"
-                  className="w-full rounded-xl border border-zinc-200 px-4 py-3 outline-none focus:border-cyan-400 resize-none"
-                  required
-                ></textarea>
-
-                <button
-                  type="submit"
-                  className="px-6 py-3 cursor-pointer rounded-xl bg-cyan-500 text-black font-semibold hover:bg-green-500 transition-"
+              {/* Availability card */}
+              <div className="card-glow rounded-3xl bg-gradient-to-br from-glow-cyan/[0.08] to-transparent p-7">
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse-dot" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+                    Currently available
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-mist">
+                  Open to full-time roles, freelance work and collaboration.
+                  I usually reply within a few hours.
+                </p>
+                <a
+                  href="https://wa.me/2347045939049"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="mt-5 inline-flex items-center gap-2.5 text-sm font-semibold text-glow-cyan transition-colors hover:text-ice"
                 >
-                  Send Message
-                </button>
+                  <WhatsappIcon className="h-4 w-4" />
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </Reveal>
+
+            {/* Form */}
+            <Reveal as="div" variant="right" delay={90} className="lg:col-span-7">
+              <form
+                onSubmit={handleSubmit}
+                className="card-glow rounded-3xl p-7 sm:p-9"
+              >
+                <h3 className="font-display text-lg font-bold text-ice">
+                  Send a message
+                </h3>
+                <p className="mt-2 text-sm text-mist">
+                  Fill this in and it opens in WhatsApp, ready to send.
+                </p>
+
+                <div className="mt-7 space-y-4">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <label className="block">
+                      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist/70">
+                        Your Name
+                      </span>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Jane Doe"
+                        className={fieldCls}
+                        required
+                      />
+                    </label>
+
+                    <label className="block">
+                      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist/70">
+                        Your Email
+                      </span>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="jane@company.com"
+                        className={fieldCls}
+                        required
+                      />
+                    </label>
+                  </div>
+
+                  <label className="block">
+                    <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist/70">
+                      Your Message
+                    </span>
+                    <textarea
+                      rows="6"
+                      name="message"
+                      placeholder="Tell me about the project, timeline and budget..."
+                      className={`${fieldCls} resize-none`}
+                      required
+                    />
+                  </label>
+                </div>
+
+                <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs text-mist/60">
+                    Or email me directly at{" "}
+                    <a
+                      href="mailto:akpanvictor456@gmail.com"
+                      className="text-glow-cyan underline-offset-4 hover:underline"
+                    >
+                      akpanvictor456@gmail.com
+                    </a>
+                  </p>
+
+                  <button
+                    type="submit"
+                    className="btn-primary btn-sheen btn-primary-hover group w-full sm:w-auto"
+                  >
+                    {sent ? "Opening WhatsApp…" : "Send Message"}
+                    <SendIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </button>
+                </div>
               </form>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

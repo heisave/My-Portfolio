@@ -1,1 +1,449 @@
 @import "tailwindcss";
+
+/* ============================================================
+   DESIGN SYSTEM — Tailwind v4 theme tokens + custom keyframes
+   ============================================================ */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Palette */
+  --color-void: #05070c;
+  --color-abyss: #080b12;
+  --color-panel: #0c101a;
+  --color-panel-2: #111725;
+  --color-hairline: rgba(255, 255, 255, 0.08);
+  --color-mist: #93a1b5;
+  --color-ice: #e7eefc;
+  --color-glow-cyan: #22d3ee;
+  --color-glow-blue: #38bdf8;
+  --color-glow-violet: #8b5cf6;
+
+  /* Animations */
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-orbit: orbit 26s linear infinite;
+  --animate-orbit-rev: orbit 34s linear infinite reverse;
+  --animate-aurora: aurora 16s ease-in-out infinite alternate;
+  --animate-shimmer: shimmer 3.2s linear infinite;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+  --animate-caret: caret 1.1s steps(1) infinite;
+  --animate-blob: blob 14s ease-in-out infinite;
+  --animate-page-in: page-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-spin-slow: orbit 14s linear infinite;
+}
+
+/* ============================================================
+   KEYFRAMES — top-level so they're always emitted
+   ============================================================ */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aurora {
+  0% {
+    transform: translate3d(-6%, -4%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, 5%, 0) scale(1.15);
+  }
+  100% {
+    transform: translate3d(-3%, 8%, 0) scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% center;
+  }
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(52, 211, 153, 0);
+  }
+}
+
+@keyframes caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blob {
+  0%,
+  100% {
+    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
+  }
+  50% {
+    border-radius: 45% 55% 40% 60% / 45% 60% 45% 55%;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    /* MUST be `none` (not blur(0)) — a lingering filter would create a
+       containing block and break the fixed navbar. */
+    filter: none;
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-void);
+    color: var(--color-ice);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.3);
+    color: #fff;
+  }
+
+  /* Slim, themed scrollbars */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-void);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1c2536;
+    border-radius: 999px;
+    border: 2px solid var(--color-void);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2b3a55;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-glow-cyan);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+
+/* Animated moving gradient text */
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    #22d3ee 0%,
+    #38bdf8 25%,
+    #a78bfa 50%,
+    #22d3ee 75%,
+    #38bdf8 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 8s linear infinite;
+}
+
+/* Static gradient text (no movement) */
+@utility text-gradient-solid {
+  background-image: linear-gradient(100deg, #22d3ee, #38bdf8 45%, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Frosted glass panel */
+@utility glass {
+  background: rgba(10, 14, 22, 0.6);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+/* Hairline card with hover glow */
+@utility card-glow {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  border: 1px solid var(--color-hairline);
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.45s ease,
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility card-glow-hover {
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(34, 211, 238, 0.4);
+    /* Cancel any scroll-reveal stagger delay so hover feels instant */
+    transition-delay: 0ms;
+    box-shadow:
+      0 18px 50px -18px rgba(0, 0, 0, 0.9),
+      0 0 0 1px rgba(34, 211, 238, 0.12),
+      0 10px 60px -20px rgba(34, 211, 238, 0.45);
+  }
+}
+
+/* Repeating technical grid backdrop */
+@utility grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Soft radial vignette so content pops */
+@utility vignette {
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+}
+
+@utility fade-x {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Buttons ---------------------------------------------------- */
+@utility btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  overflow: hidden;
+  border-radius: 0.95rem;
+  padding: 0.85rem 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #04121a;
+  background: linear-gradient(120deg, #22d3ee, #38bdf8 55%, #67e8f9);
+  box-shadow:
+    0 10px 30px -12px rgba(34, 211, 238, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+@utility btn-primary-hover {
+  &:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.06);
+    box-shadow:
+      0 18px 40px -14px rgba(34, 211, 238, 0.85),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+/* Sheen sweep that runs on hover */
+@utility btn-sheen {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%) skewX(-20deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    transition: transform 0.7s ease;
+  }
+  &:hover::after {
+    transform: translateX(120%) skewX(-20deg);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 0.95rem;
+  padding: 0.85rem 1.6rem;
+  font-weight: 600;
+  color: var(--color-ice);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+@utility btn-ghost-hover {
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(34, 211, 238, 0.55);
+    background: rgba(34, 211, 238, 0.08);
+    box-shadow: 0 14px 34px -18px rgba(34, 211, 238, 0.8);
+  }
+}
+
+/* Chip / badge ---------------------------------------------- */
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  background: rgba(34, 211, 238, 0.07);
+  padding: 0.4rem 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #67e8f9;
+}
+
+/* Section label with a leading gradient rule */
+@utility eyebrow-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  &::before {
+    content: "";
+    width: 2.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #22d3ee);
+  }
+}
+
+/* ============================================================
+   SCROLL REVEAL SYSTEM (IntersectionObserver driven)
+   In the `components` layer so Tailwind hover/transform
+   utilities always win over these base states.
+   ============================================================ */
+@layer components {
+  .reveal {
+    opacity: 0;
+    transition:
+      opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-up {
+    transform: translate3d(0, 38px, 0);
+  }
+  .reveal-left {
+    transform: translate3d(-48px, 0, 0);
+  }
+  .reveal-right {
+    transform: translate3d(48px, 0, 0);
+  }
+  .reveal-zoom {
+    transform: scale(0.93);
+  }
+  .reveal-blur {
+    filter: blur(10px);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  /* Marquee helpers */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Gradient hairline used on top of sections */
+  .hairline-grad {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(34, 211, 238, 0.45),
+      rgba(139, 92, 246, 0.35),
+      transparent
+    );
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom,
+  .reveal-blur {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

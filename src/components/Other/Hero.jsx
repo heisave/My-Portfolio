@@ -1,49 +1,204 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+import cvFile from "../../assets/AkpanVictorCv.pdf?url";
+import Reveal from "../ui/Reveal";
+import CountUp from "../ui/CountUp";
+import Typewriter from "../ui/Typewriter";
+import {
+  ArrowRightIcon,
+  DownloadIcon,
+  GithubIcon,
+  LinkedinIcon,
+  XIcon,
+} from "../ui/Icons";
+
+const headline = ["Building", "products", "that", "feel"];
+
+const stats = [
+  { value: 15, suffix: "+", label: "Projects shipped" },
+  { value: 3, suffix: "+", label: "Years building" },
+  { value: 100, suffix: "%", label: "Responsive focus" },
+];
+
+const socials = [
+  { label: "GitHub", href: "https://github.com/heisave", Icon: GithubIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/", Icon: LinkedinIcon },
+  { label: "X", href: "https://x.com/", Icon: XIcon },
+];
+
+const floatingTech = [
+  { name: "React", pos: "top-2 -left-6 sm:-left-10", delay: "0s" },
+  { name: "Tailwind", pos: "bottom-10 -right-8 sm:-right-14", delay: "-2.4s" },
+  { name: "JavaScript", pos: "-bottom-2 left-8", delay: "-4.8s" },
+];
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center px-6 py-24 mt-5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-24 pt-36">
+      {/* Hero-only spotlight */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[46rem] w-[46rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow-cyan/[0.07] blur-[150px]"
+        aria-hidden="true"
+      />
 
-        {/* Left */}
-        <div className="text-center lg:text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-black">
-            Building products
-            <br />
-            that feel
-            <span className="text-cyan-400"> effortless.</span>
+      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-10">
+        {/* ---------------- Left column ---------------- */}
+        <div className="lg:col-span-7">
+          {/* Availability */}
+          <Reveal as="div" variant="blur" className="flex justify-center lg:justify-start">
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-mist backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse-dot" />
+              Available for opportunities
+            </span>
+          </Reveal>
+
+          {/* Headline — word by word entrance */}
+          <h1 className="mt-7 font-display text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-ice sm:text-6xl lg:text-[4.4rem]">
+            <span className="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-1 lg:justify-start">
+              {headline.map((word, i) => (
+                <Reveal
+                  as="span"
+                  key={word}
+                  delay={120 + i * 90}
+                  className="inline-block"
+                >
+                  {word}
+                </Reveal>
+              ))}
+              <Reveal as="span" delay={120 + headline.length * 90} className="inline-block">
+                <span className="text-gradient">effortless.</span>
+              </Reveal>
+            </span>
           </h1>
 
-          <p className="mt-6 text-zinc-700 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-           Frontend developer from Nigeria specializing in React and JavaScript. I build responsive, production-focused web interfaces with a strong eye for usability, clean code, and detail. Experienced in real-world development, team collaboration, Git workflows, and shipping projects from idea to deployment.
-          </p>
+          {/* Rotating role line */}
+          <Reveal as="div" delay={640} variant="up" className="mt-6">
+            <div className="inline-flex items-center gap-3 rounded-xl border border-hairline bg-white/[0.03] px-4 py-2.5 font-mono text-sm text-glow-cyan/90">
+              <span className="text-mist/60">{"//"}</span>
+              <Typewriter
+                phrases={[
+                  "Frontend Developer",
+                  "React Engineer",
+                  "UI-Driven Builder",
+                  "Problem Solver",
+                ]}
+              />
+            </div>
+          </Reveal>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link to="/projects">
-              <button className="w-full sm:w-auto px-6 py-3 rounded-xl bg-cyan-500 text-black font-semibold hover:bg-cyan-400 transition cursor-pointer">
-                View Projects
-              </button>
+          {/* Intro */}
+          <Reveal as="p" delay={760} className="mt-7 max-w-xl text-base leading-relaxed text-mist sm:text-lg">
+            Frontend developer from Nigeria specializing in React and
+            JavaScript. I build responsive, production-focused web interfaces
+            with a strong eye for usability, clean code, and detail — from
+            idea to deployment.
+          </Reveal>
+
+          {/* CTAs */}
+          <Reveal as="div" delay={860} className="mt-9 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <Link
+              to="/projects"
+              className="btn-primary btn-sheen btn-primary-hover group"
+            >
+              View Projects
+              <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
 
-            <a href="/AkpanVictorCv.pdf" download>
-              <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-zinc-700 text-black cursor-pointer">
-                Download CV
-              </button>
+            <a href={cvFile} download className="btn-ghost btn-ghost-hover group">
+              <DownloadIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+              Download CV
             </a>
-          </div>
+          </Reveal>
+
+          {/* Stats */}
+          <Reveal as="dl" delay={960} className="mt-11 grid max-w-lg grid-cols-3 gap-4 border-t border-hairline pt-7">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <dt className="sr-only">{s.label}</dt>
+                <dd className="font-display text-3xl font-extrabold text-ice sm:text-4xl">
+                  <CountUp to={s.value} suffix={s.suffix} />
+                </dd>
+                <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-mist/80 sm:text-xs">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </Reveal>
+
+          {/* Socials */}
+          <Reveal as="div" delay={1040} className="mt-8 flex items-center gap-3">
+            <span className="mr-1 text-xs font-semibold uppercase tracking-[0.18em] text-mist/60">
+              Find me
+            </span>
+            {socials.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={label}
+                className="grid h-9 w-9 place-items-center rounded-lg border border-hairline bg-white/[0.03] text-mist transition-all duration-300 hover:-translate-y-1 hover:border-glow-cyan/50 hover:text-glow-cyan hover:shadow-[0_10px_26px_-12px_rgba(34,211,238,0.75)]"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </Reveal>
         </div>
 
-        {/* Right */}
-        <div className="flex justify-center">
-  <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-cyan-500 bg-zinc-900 ">
-    <img
-      src="/my-pic.jpg"
-      alt="Victor"
-      className="w-full h-full object-cover"
-    />
-  </div>
-</div>
+        {/* ---------------- Right column: portrait ---------------- */}
+        <div className="lg:col-span-5">
+          <Reveal as="div" variant="zoom" delay={320} className="relative mx-auto w-fit">
+            {/* Glow behind the portrait */}
+            <div
+              className="absolute inset-6 rounded-full bg-glow-cyan/25 blur-[70px]"
+              aria-hidden="true"
+            />
 
+            {/* Rotating conic ring */}
+            <div className="absolute -inset-4 rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,rgba(34,211,238,0.9)_80deg,transparent_160deg,rgba(139,92,246,0.8)_250deg,transparent_340deg)] animate-spin-slow opacity-80"
+              aria-hidden="true"
+            />
+            <div className="absolute -inset-4 rounded-full border border-white/10" aria-hidden="true" />
+
+            {/* Portrait */}
+            <div className="relative h-64 w-64 overflow-hidden rounded-full border border-white/15 bg-panel-2 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.95)] sm:h-72 sm:w-72 md:h-80 md:w-80">
+              <img
+                src="/newpic.png"
+                alt="Akpan Victor"
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-void/60 via-transparent to-transparent" />
+            </div>
+
+            {/* Floating tech badges */}
+            {floatingTech.map(({ name, pos, delay }) => (
+              <span
+                key={name}
+                style={{ animationDelay: delay }}
+                className={`absolute ${pos} animate-float rounded-xl border border-hairline bg-abyss/90 px-3.5 py-2 font-mono text-xs font-semibold text-ice shadow-[0_16px_40px_-18px_rgba(0,0,0,0.9)] backdrop-blur`}
+              >
+                <span className="mr-1.5 text-glow-cyan">◆</span>
+                {name}
+              </span>
+            ))}
+          </Reveal>
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="pointer-events-none absolute bottom-7 left-1/2 hidden -translate-x-1/2 lg:block">
+        <Reveal
+          as="div"
+          delay={1200}
+          className="flex flex-col items-center gap-2"
+        >
+          <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-mist/60">
+            Scroll
+          </span>
+          <span className="relative h-10 w-px bg-hairline">
+            <span className="absolute left-1/2 top-0 h-3.5 w-px -translate-x-1/2 bg-glow-cyan animate-float" />
+          </span>
+        </Reveal>
       </div>
     </section>
   );
