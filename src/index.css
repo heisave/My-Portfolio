@@ -343,28 +343,41 @@
 @utility chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  max-width: 100%;
   border-radius: 999px;
   border: 1px solid rgba(34, 211, 238, 0.25);
   background: rgba(34, 211, 238, 0.07);
-  padding: 0.4rem 0.95rem;
-  font-size: 0.78rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.66rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
+  line-height: 1.35;
   text-transform: uppercase;
   color: #67e8f9;
+  @media (min-width: 640px) {
+    padding: 0.4rem 0.95rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+  }
 }
 
 /* Section label with a leading gradient rule */
 @utility eyebrow-line {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   &::before {
     content: "";
-    width: 2.5rem;
+    width: 1.25rem;
     height: 1px;
     background: linear-gradient(90deg, transparent, #22d3ee);
+  }
+  @media (min-width: 640px) {
+    gap: 0.75rem;
+    &::before {
+      width: 2.5rem;
+    }
   }
 }
 

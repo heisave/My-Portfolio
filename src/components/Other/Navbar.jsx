@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { MenuIcon } from "../ui/Icons";
 
@@ -12,8 +12,12 @@ const navItems = [
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [progress, setProgress] = useState(0);
   const location = useLocation();
+
+  // The progress bar is written straight to the DOM (not React state) so we
+  // don't re-render the whole navbar on every scroll frame — the single
+  // biggest cause of scroll jank on mobile.
+  const barRef = useRef(null);
 
   // Close the mobile menu on route change — React's "adjust state during
   // render" pattern instead of an effect (avoids a wasted extra render).
@@ -26,11 +30,18 @@ const Navbar = () => {
   // Track scroll → compact navbar + reading-progress bar
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY;
       const doc = document.documentElement;
       const max = doc.scrollHeight - doc.clientHeight;
-      setScrolled(y > 24);
-      setProgress(max > 0 ? (y / max) * 100 : 0);
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+
+      // Direct DOM write — no React render.
+      if (barRef.current) barRef.current.style.width = `${pct}%`;
+
+      // Only flip state when the value actually changes.
+      setScrolled((prev) => {
+        const next = window.scrollY > 24;
+        return prev === next ? prev : next;
+      });
     };
 
     onScroll();
@@ -59,8 +70,9 @@ const Navbar = () => {
         >
           {/* Reading progress bar */}
           <div
-            className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-glow-cyan via-glow-blue to-glow-violet transition-[width] duration-150 ease-out"
-            style={{ width: `${progress}%` }}
+            ref={barRef}
+            className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-glow-cyan via-glow-blue to-glow-violet"
+            style={{ width: "0%" }}
             aria-hidden="true"
           />
 

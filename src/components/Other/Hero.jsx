@@ -25,22 +25,24 @@ const socials = [
   { label: "X", href: "https://x.com/", Icon: XIcon },
 ];
 
+/* Badges hug the portrait on narrow screens (they were pushed outside the
+   section and clipped) and fan out from sm up. */
 const floatingTech = [
-  { name: "React", pos: "top-2 -left-6 sm:-left-10", delay: "0s" },
-  { name: "Tailwind", pos: "bottom-10 -right-8 sm:-right-14", delay: "-2.4s" },
-  { name: "JavaScript", pos: "-bottom-2 left-8", delay: "-4.8s" },
+  { name: "React", pos: "top-1 -left-3 sm:-left-10", delay: "0s" },
+  { name: "Tailwind", pos: "bottom-8 -right-3 sm:-right-14", delay: "-2.4s" },
+  { name: "JavaScript", pos: "-bottom-3 left-4 sm:-bottom-2 sm:left-8", delay: "-4.8s" },
 ];
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-24 pt-36">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
       {/* Hero-only spotlight */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[46rem] w-[46rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow-cyan/[0.07] blur-[150px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow-cyan/[0.07] blur-[70px] sm:h-[46rem] sm:w-[46rem] sm:blur-[150px]"
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-10">
+      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 sm:gap-14 lg:grid-cols-12 lg:gap-10">
         {/* ---------------- Left column ---------------- */}
         <div className="lg:col-span-7">
           {/* Availability */}
@@ -52,8 +54,8 @@ const Hero = () => {
           </Reveal>
 
           {/* Headline — word by word entrance */}
-          <h1 className="mt-7 font-display text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-ice sm:text-6xl lg:text-[4.4rem]">
-            <span className="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-1 lg:justify-start">
+          <h1 className="mt-6 font-display text-[2.1rem] font-extrabold leading-[1.06] tracking-tight text-ice min-[400px]:text-[2.6rem] sm:mt-7 sm:text-6xl lg:text-[4.4rem]">
+            <span className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-0.5 min-[400px]:gap-x-4 lg:justify-start">
               {headline.map((word, i) => (
                 <Reveal
                   as="span"
@@ -110,14 +112,14 @@ const Hero = () => {
           </Reveal>
 
           {/* Stats */}
-          <Reveal as="dl" delay={960} className="mt-11 grid max-w-lg grid-cols-3 gap-4 border-t border-hairline pt-7">
+          <Reveal as="dl" delay={960} className="mt-9 grid max-w-lg grid-cols-3 gap-2.5 border-t border-hairline pt-6 sm:mt-11 sm:gap-4 sm:pt-7">
             {stats.map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
-                <dd className="font-display text-3xl font-extrabold text-ice sm:text-4xl">
+                <dd className="font-display text-2xl font-extrabold text-ice min-[400px]:text-3xl sm:text-4xl">
                   <CountUp to={s.value} suffix={s.suffix} />
                 </dd>
-                <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-mist/80 sm:text-xs">
+                <p className="mt-1 text-[10px] font-medium uppercase leading-snug tracking-[0.1em] text-mist/80 sm:mt-1.5 sm:text-xs sm:tracking-[0.14em]">
                   {s.label}
                 </p>
               </div>
@@ -125,7 +127,7 @@ const Hero = () => {
           </Reveal>
 
           {/* Socials */}
-          <Reveal as="div" delay={1040} className="mt-8 flex items-center gap-3">
+          <Reveal as="div" delay={1040} className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
             <span className="mr-1 text-xs font-semibold uppercase tracking-[0.18em] text-mist/60">
               Find me
             </span>

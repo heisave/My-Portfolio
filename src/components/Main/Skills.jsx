@@ -100,12 +100,12 @@ const SkillBar = ({ skill, index }) => {
         fill ? "is-visible" : ""
       }`}
     >
-      <div className="flex items-center justify-between gap-4">
-        <span className="flex items-center gap-3 font-medium text-ice">
-          <span className="h-2 w-2 rounded-full bg-glow-cyan shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
-          {skill.name}
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+        <span className="flex min-w-0 items-center gap-3 font-medium text-ice">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-glow-cyan shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
+          <span className="min-w-0 break-words">{skill.name}</span>
         </span>
-        <span className="rounded-full border border-glow-cyan/25 bg-glow-cyan/10 px-3 py-1 text-[11px] font-semibold whitespace-nowrap text-glow-cyan">
+        <span className="shrink-0 rounded-full border border-glow-cyan/25 bg-glow-cyan/10 px-3 py-1 text-[11px] font-semibold whitespace-nowrap text-glow-cyan">
           {skill.tag}
         </span>
       </div>
@@ -132,7 +132,7 @@ const Skills = () => {
     <>
       <Navbar />
 
-      <section className="px-6 pb-24 pt-36">
+      <section className="px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Skills • What I work with"
@@ -142,7 +142,7 @@ const Skills = () => {
           />
 
           {/* Category tabs */}
-          <Reveal as="div" delay={120} className="mt-10 flex flex-wrap gap-3">
+          <Reveal as="div" delay={120} className="mt-8 sm:mt-10 flex flex-wrap gap-3">
             {categories.map((cat) => {
               const isActive = cat.id === activeId;
               return (
@@ -166,7 +166,7 @@ const Skills = () => {
           </Reveal>
 
           {/* Skills grid */}
-          <div className="card-glow mt-8 rounded-3xl p-6 sm:p-8">
+          <div className="card-glow mt-8 rounded-3xl p-5 sm:p-8">
             <ul
               key={activeId}
               className="grid gap-4 sm:grid-cols-2"
@@ -181,7 +181,7 @@ const Skills = () => {
           <Reveal
             as="div"
             delay={100}
-            className="mt-12 border-y border-hairline py-5"
+            className="mt-8 sm:mt-12 border-y border-hairline py-5"
           >
             <Marquee items={tickerItems} speed={34} />
           </Reveal>

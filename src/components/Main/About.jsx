@@ -46,7 +46,7 @@ const About = () => {
     <>
       <Navbar />
 
-      <section className="px-6 pb-24 pt-36">
+      <section className="px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="About • Who I am"
@@ -59,15 +59,15 @@ const About = () => {
           <Reveal
             as="dl"
             delay={140}
-            className="mt-12 grid max-w-2xl grid-cols-3 gap-4 border-y border-hairline py-7"
+            className="mt-8 grid max-w-2xl grid-cols-3 gap-2.5 border-y border-hairline py-6 sm:mt-12 sm:gap-4 sm:py-7"
           >
             {stats.map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
-                <dd className="font-display text-3xl font-extrabold text-ice sm:text-4xl">
+                <dd className="font-display text-2xl font-extrabold text-ice sm:text-4xl">
                   <CountUp to={s.value} suffix={s.suffix} />
                 </dd>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-mist/80">
+                <p className="mt-1 text-[10px] font-medium uppercase leading-snug tracking-[0.1em] text-mist/80 sm:text-xs sm:tracking-[0.14em]">
                   {s.label}
                 </p>
               </div>
@@ -75,12 +75,12 @@ const About = () => {
           </Reveal>
 
           {/* Cards */}
-          <div className="mt-14 grid gap-6 lg:grid-cols-12">
+          <div className="mt-9 grid gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-12">
             {/* Quick facts */}
             <Reveal
               as="div"
               variant="left"
-              className="card-glow rounded-3xl p-7 lg:col-span-5"
+              className="card-glow rounded-3xl p-5 sm:p-7 lg:col-span-5"
             >
               <div className="flex items-center gap-2.5">
                 <span className="grid h-9 w-9 place-items-center rounded-xl bg-glow-cyan/10 text-glow-cyan">
@@ -115,7 +115,7 @@ const About = () => {
               <Reveal
                 as="div"
                 variant="right"
-                className="card-glow rounded-3xl p-7"
+                className="card-glow rounded-3xl p-5 sm:p-7"
               >
                 <h3 className="font-display text-lg font-bold text-ice">
                   My Story
@@ -163,7 +163,7 @@ const About = () => {
           <Reveal
             as="div"
             delay={120}
-            className="mt-14 flex flex-col items-start justify-between gap-6 rounded-3xl border border-hairline bg-gradient-to-r from-glow-cyan/[0.07] to-glow-violet/[0.07] p-8 sm:flex-row sm:items-center"
+            className="mt-9 sm:mt-14 flex flex-col items-start justify-between gap-6 rounded-3xl border border-hairline bg-gradient-to-r from-glow-cyan/[0.07] to-glow-violet/[0.07] p-8 sm:flex-row sm:items-center"
           >
             <div>
               <h3 className="font-display text-xl font-bold text-ice sm:text-2xl">

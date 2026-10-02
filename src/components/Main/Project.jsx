@@ -15,7 +15,7 @@ const Projects = () => {
     <>
       <Navbar />
 
-      <section className="px-6 pb-24 pt-36">
+      <section className="px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Projects • My work"
@@ -24,7 +24,7 @@ const Projects = () => {
             lead="A collection of projects that helped me grow as a developer and sharpen my problem-solving skills."
           />
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-9 sm:mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project, index) => (
               <Reveal
                 key={project.title}
@@ -51,7 +51,7 @@ const Projects = () => {
                 </div>
 
                 {/* Body */}
-                <div className="flex flex-1 flex-col p-6">
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <h3 className="font-display text-xl font-bold leading-snug text-ice transition-colors duration-300 group-hover:text-glow-cyan">
                     {project.title}
                   </h3>
@@ -117,7 +117,7 @@ const Projects = () => {
           <Reveal
             as="div"
             delay={150}
-            className="mt-14 flex flex-col items-center gap-4 rounded-3xl border border-hairline bg-gradient-to-r from-glow-violet/[0.08] to-glow-cyan/[0.08] p-8 text-center sm:flex-row sm:justify-between sm:text-left"
+            className="mt-9 sm:mt-14 flex flex-col items-center gap-4 rounded-3xl border border-hairline bg-gradient-to-r from-glow-violet/[0.08] to-glow-cyan/[0.08] p-8 text-center sm:flex-row sm:justify-between sm:text-left"
           >
             <div>
               <h3 className="font-display text-xl font-bold text-ice">

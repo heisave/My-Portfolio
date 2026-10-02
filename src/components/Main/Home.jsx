@@ -32,7 +32,7 @@ const Home = () => {
       </Reveal>
 
       {/* Quick value props */}
-      <section className="px-6 py-24">
+      <section className="px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
           {[
             {
@@ -55,7 +55,7 @@ const Home = () => {
               key={item.n}
               as="article"
               delay={i * 120}
-              className="card-glow card-glow-hover group rounded-3xl p-7"
+              className="card-glow card-glow-hover group rounded-3xl p-5 sm:p-7"
             >
               <span className="font-mono text-sm font-semibold text-glow-cyan/70">
                 {item.n}

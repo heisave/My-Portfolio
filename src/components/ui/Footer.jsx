@@ -21,7 +21,7 @@ const Footer = () => (
   <footer className="relative mt-24 border-t border-hairline bg-abyss/70 backdrop-blur-sm">
     <div className="hairline-grad absolute -top-px left-0 w-full" />
 
-    <div className="mx-auto max-w-7xl px-6 py-14">
+    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14">
       <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         {/* Brand */}
         <Reveal as="div" variant="left" className="max-w-sm">
@@ -57,8 +57,8 @@ const Footer = () => (
           </div>
         </Reveal>
 
-        {/* Nav + contact columns */}
-        <div className="flex gap-14 sm:gap-20">
+        {/* Nav + contact columns — wrap into 3 columns on narrow screens */}
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-14 md:flex md:gap-14 lg:gap-20">
           <Reveal as="nav" delay={80} variant="up">
             <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-mist/70">
               Sitemap
@@ -82,13 +82,13 @@ const Footer = () => (
             <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-mist/70">
               Get in touch
             </h3>
-            <ul className="mt-5 space-y-3 text-sm">
+            <ul className="mt-5 space-y-3 text-sm break-words">
               <li>
                 <a
                   href="mailto:akpanvictor456@gmail.com"
                   className="text-mist transition-colors hover:text-glow-cyan"
                 >
-                  akpanvictor456@gmail.com
+                  <span className="break-all">akpanvictor456@gmail.com</span>
                 </a>
               </li>
               <li className="text-mist">Nigeria · Remote friendly</li>
@@ -99,8 +99,8 @@ const Footer = () => (
                   rel="noreferrer noopener"
                   className="inline-flex items-center gap-1 text-mist transition-colors hover:text-glow-cyan"
                 >
-                  github.com/heisave
-                  <ArrowUpRightIcon className="h-3.5 w-3.5" />
+                  <span className="break-all">github.com/heisave</span>
+                  <ArrowUpRightIcon className="h-3.5 w-3.5 shrink-0" />
                 </a>
               </li>
             </ul>

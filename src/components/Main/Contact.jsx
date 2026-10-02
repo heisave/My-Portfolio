@@ -73,7 +73,7 @@ ${message}`;
     <>
       <Navbar />
 
-      <section className="px-6 pb-24 pt-36">
+      <section className="px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Contact • Let's connect"
@@ -82,10 +82,10 @@ ${message}`;
             lead="Whether it's a project, collaboration, internship opportunity, or just a conversation about tech and creativity — feel free to reach out."
           />
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-12">
+          <div className="mt-9 sm:mt-14 grid gap-6 lg:grid-cols-12">
             {/* Details */}
             <Reveal as="div" variant="left" className="space-y-6 lg:col-span-5">
-              <div className="card-glow rounded-3xl p-7">
+              <div className="card-glow rounded-3xl p-5 sm:p-7">
                 <h3 className="font-display text-lg font-bold text-ice">
                   Contact Details
                 </h3>
@@ -131,7 +131,7 @@ ${message}`;
               </div>
 
               {/* Availability card */}
-              <div className="card-glow rounded-3xl bg-gradient-to-br from-glow-cyan/[0.08] to-transparent p-7">
+              <div className="card-glow rounded-3xl bg-gradient-to-br from-glow-cyan/[0.08] to-transparent p-5 sm:p-7">
                 <div className="flex items-center gap-2.5">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse-dot" />
                   <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
@@ -158,7 +158,7 @@ ${message}`;
             <Reveal as="div" variant="right" delay={90} className="lg:col-span-7">
               <form
                 onSubmit={handleSubmit}
-                className="card-glow rounded-3xl p-7 sm:p-9"
+                className="card-glow rounded-3xl p-5 sm:p-9"
               >
                 <h3 className="font-display text-lg font-bold text-ice">
                   Send a message
@@ -211,11 +211,11 @@ ${message}`;
                 </div>
 
                 <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-xs text-mist/60">
+                  <p className="text-xs text-mist/60 break-words">
                     Or email me directly at{" "}
                     <a
                       href="mailto:akpanvictor456@gmail.com"
-                      className="text-glow-cyan underline-offset-4 hover:underline"
+                      className="text-glow-cyan underline-offset-4 hover:underline break-all"
                     >
                       akpanvictor456@gmail.com
                     </a>

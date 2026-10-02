@@ -23,7 +23,7 @@ const SectionHeading = ({
         </span>
       </Reveal>
 
-      <Reveal as="h2" delay={90} className="mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-ice sm:text-5xl lg:text-6xl">
+      <Reveal as="h2" delay={90} className="mt-5 font-display text-[1.75rem] leading-[1.1] font-extrabold tracking-tight text-ice min-[400px]:text-4xl sm:mt-6 sm:text-5xl lg:text-6xl">
         {title}{" "}
         {accent && <span className="text-gradient">{accent}</span>}
       </Reveal>
