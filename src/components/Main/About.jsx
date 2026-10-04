@@ -1,9 +1,8 @@
-import Navbar from "../Other/Navbar";
 import Reveal from "../ui/Reveal";
 import CountUp from "../ui/CountUp";
 import SectionHeading from "../ui/SectionHeading";
+import ScrollLink from "../ui/ScrollLink";
 import { SparkIcon, ClockIcon, ArrowRightIcon } from "../ui/Icons";
-import { Link } from "react-router-dom";
 
 const facts = [
   { label: "Role", value: "Frontend Developer" },
@@ -44,9 +43,10 @@ const stats = [
 const About = () => {
   return (
     <>
-      <Navbar />
-
-      <section className="px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
+      <section
+        id="about"
+        className="px-4 pb-16 pt-16 sm:px-6 sm:pb-24 sm:pt-24"
+      >
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="About • Who I am"
@@ -67,7 +67,7 @@ const About = () => {
                 <dd className="font-display text-2xl font-extrabold text-ice sm:text-4xl">
                   <CountUp to={s.value} suffix={s.suffix} />
                 </dd>
-                <p className="mt-1 text-[10px] font-medium uppercase leading-snug tracking-[0.1em] text-mist/80 sm:text-xs sm:tracking-[0.14em]">
+                <p className="mt-1 text-[10px] font-medium uppercase leading-snug tracking-[0.1em] text-mist sm:text-xs sm:tracking-[0.14em]">
                   {s.label}
                 </p>
               </div>
@@ -79,7 +79,7 @@ const About = () => {
             {/* Quick facts */}
             <Reveal
               as="div"
-              variant="left"
+              variant="3d"
               className="card-glow rounded-3xl p-5 sm:p-7 lg:col-span-5"
             >
               <div className="flex items-center gap-2.5">
@@ -91,10 +91,10 @@ const About = () => {
                 </h3>
               </div>
 
-              <dl className="mt-7 divide-y divide-white/[0.06]">
+              <dl className="mt-7 divide-y divide-ink/[0.07]">
                 {facts.map((f) => (
                   <div key={f.label} className="py-4 first:pt-0 last:pb-0">
-                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-mist/70">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-mist">
                       {f.label}
                     </dt>
                     <dd className="mt-1.5 text-[15px] font-medium text-ice">
@@ -104,7 +104,7 @@ const About = () => {
                 ))}
               </dl>
 
-              <div className="mt-7 flex items-center gap-2 rounded-2xl border border-emerald-400/20 bg-emerald-400/[0.06] px-4 py-3 text-sm text-emerald-300">
+              <div className="mt-7 flex items-center gap-2 rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.08] px-4 py-3 text-sm text-emerald-700">
                 <ClockIcon className="h-4 w-4 shrink-0" />
                 Open to full-time & freelance work
               </div>
@@ -114,7 +114,7 @@ const About = () => {
             <div className="space-y-6 lg:col-span-7">
               <Reveal
                 as="div"
-                variant="right"
+                variant="3d"
                 className="card-glow rounded-3xl p-5 sm:p-7"
               >
                 <h3 className="font-display text-lg font-bold text-ice">
@@ -174,13 +174,13 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link to="/projects" className="btn-primary btn-sheen btn-primary-hover group text-sm">
+              <ScrollLink to="work" className="btn-primary btn-sheen btn-primary-hover group text-sm">
                 View Projects
                 <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <Link to="/contact" className="btn-ghost btn-ghost-hover text-sm">
+              </ScrollLink>
+              <ScrollLink to="contact" className="btn-ghost btn-ghost-hover text-sm">
                 Let's talk
-              </Link>
+              </ScrollLink>
             </div>
           </Reveal>
         </div>

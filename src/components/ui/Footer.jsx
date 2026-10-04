@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
+import ScrollLink from "./ScrollLink";
 import Reveal from "./Reveal";
 import { GithubIcon, LinkedinIcon, XIcon, MailIcon, ArrowUpRightIcon } from "./Icons";
 
 const footerLinks = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Projects", to: "/projects" },
-  { label: "Skills", to: "/skill" },
-  { label: "Contact", to: "/contact" },
+  { label: "Top", id: "top" },
+  { label: "About", id: "about" },
+  { label: "Skills", id: "skills" },
+  { label: "Work", id: "work" },
+  { label: "Contact", id: "contact" },
 ];
 
 const socials = [
@@ -25,18 +25,18 @@ const Footer = () => (
       <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         {/* Brand */}
         <Reveal as="div" variant="left" className="max-w-sm">
-          <Link to="/" className="group inline-flex items-center gap-2 font-display text-xl font-extrabold tracking-tight text-ice">
+          <ScrollLink to="top" className="group inline-flex items-center gap-2 font-display text-xl font-extrabold tracking-tight text-ice">
             Akpan Victor
             <span className="text-glow-cyan transition-transform duration-300 group-hover:rotate-12">.</span>
-          </Link>
+          </ScrollLink>
           <p className="mt-4 text-sm leading-relaxed text-mist">
             Frontend developer building responsive, production-focused web
             interfaces with React — from idea to deployment.
           </p>
 
           <div className="mt-6 flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse-dot" />
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300/90">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse-dot" />
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
               Open to work
             </span>
           </div>
@@ -49,7 +49,7 @@ const Footer = () => (
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={label}
-                className="grid h-10 w-10 place-items-center rounded-xl border border-hairline bg-white/[0.03] text-mist transition-all duration-300 hover:-translate-y-1 hover:border-glow-cyan/50 hover:text-glow-cyan hover:shadow-[0_10px_30px_-12px_rgba(34,211,238,0.7)]"
+                className="grid h-10 w-10 place-items-center rounded-xl border border-hairline bg-white/80 text-mist shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-glow-cyan/50 hover:text-glow-cyan hover:shadow-[0_10px_26px_-14px_rgba(14,116,144,0.7)]"
               >
                 <Icon className="h-[18px] w-[18px]" />
               </a>
@@ -60,26 +60,26 @@ const Footer = () => (
         {/* Nav + contact columns — wrap into 3 columns on narrow screens */}
         <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-14 md:flex md:gap-14 lg:gap-20">
           <Reveal as="nav" delay={80} variant="up">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-mist/70">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
               Sitemap
             </h3>
             <ul className="mt-5 space-y-3">
               {footerLinks.map((l) => (
-                <li key={l.to}>
-                  <Link
-                    to={l.to}
+                <li key={l.id}>
+                  <ScrollLink
+                    to={l.id}
                     className="group inline-flex items-center gap-1.5 text-sm text-mist transition-colors hover:text-glow-cyan"
                   >
                     <span className="h-px w-0 bg-glow-cyan transition-all duration-300 group-hover:w-4" />
                     {l.label}
-                  </Link>
+                  </ScrollLink>
                 </li>
               ))}
             </ul>
           </Reveal>
 
           <Reveal as="div" delay={160} variant="up">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-mist/70">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
               Get in touch
             </h3>
             <ul className="mt-5 space-y-3 text-sm break-words">
@@ -108,7 +108,7 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-6 text-xs text-mist/70 sm:flex-row">
+      <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-6 text-xs text-mist sm:flex-row">
         <p>© {new Date().getFullYear()} Akpan Victor. Built with React & Tailwind CSS.</p>
         <p className="font-mono">
           Designed &amp; developed <span className="text-glow-cyan">with caffeine</span> ☕

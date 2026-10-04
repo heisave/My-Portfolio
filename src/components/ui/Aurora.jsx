@@ -25,9 +25,9 @@ const Aurora = () => (
       style={{ animationDelay: "-11s", animationDuration: "26s" }}
     />
 
-    {/* Technical grid + vignette */}
+    {/* Technical grid + vignette (fades to the page colour at the edges) */}
     <div className="absolute inset-0 grid-bg opacity-40 vignette" />
-    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(5,7,12,0.85)_100%)]" />
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(246,248,252,0.92)_100%)]" />
   </div>
 );
 

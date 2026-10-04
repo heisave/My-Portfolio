@@ -1,4 +1,3 @@
-import Navbar from "../Other/Navbar";
 import Reveal from "../ui/Reveal";
 import SectionHeading from "../ui/SectionHeading";
 import projects from "../../data/Projects.json";
@@ -13,9 +12,7 @@ const accents = [
 const Projects = () => {
   return (
     <>
-      <Navbar />
-
-      <section className="px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
+      <section id="work" className="px-4 pb-16 pt-16 sm:px-6 sm:pb-24 sm:pt-24">
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Projects • My work"
@@ -29,6 +26,7 @@ const Projects = () => {
               <Reveal
                 key={project.title}
                 as="article"
+                variant="3d"
                 delay={(index % 3) * 130}
                 className="group card-glow card-glow-hover flex flex-col overflow-hidden rounded-3xl"
               >
@@ -40,7 +38,7 @@ const Projects = () => {
                   <div className="absolute inset-0 grid-bg opacity-30" />
 
                   {/* Big index */}
-                  <span className="absolute -bottom-4 right-4 font-display text-[5.5rem] font-extrabold leading-none text-white/[0.06] transition-all duration-500 group-hover:-translate-y-1 group-hover:text-white/[0.1]">
+                  <span className="absolute -bottom-4 right-4 font-display text-[5.5rem] font-extrabold leading-none text-ink/[0.07] transition-all duration-500 group-hover:-translate-y-1 group-hover:text-ink/[0.12]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
@@ -66,7 +64,7 @@ const Projects = () => {
                       {project.highlights.slice(0, 2).map((h) => (
                         <li
                           key={h}
-                          className="flex items-start gap-2 text-xs leading-relaxed text-mist/85"
+                          className="flex items-start gap-2 text-xs leading-relaxed text-mist"
                         >
                           <span className="mt-1.5 h-1 w-1 shrink-0 rotate-45 bg-glow-cyan/80" />
                           {h}
@@ -79,7 +77,7 @@ const Projects = () => {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-md border border-hairline bg-white/[0.03] px-2.5 py-1 text-[11px] font-medium text-mist transition-colors duration-300 group-hover:border-glow-cyan/25"
+                        className="rounded-md border border-hairline bg-void/80 px-2.5 py-1 text-[11px] font-medium text-mist transition-colors duration-300 group-hover:border-glow-cyan/25 group-hover:text-ice"
                       >
                         {tech}
                       </span>
@@ -92,7 +90,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-hairline bg-white/[0.03] py-2.5 text-sm font-medium text-ice transition-all duration-300 hover:border-glow-cyan/50 hover:text-glow-cyan"
+                      className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-hairline bg-void/70 py-2.5 text-sm font-medium text-ice transition-all duration-300 hover:border-glow-cyan/50 hover:bg-void hover:text-glow-cyan"
                     >
                       <GithubIcon className="h-4 w-4" />
                       Code

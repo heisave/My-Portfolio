@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import Navbar from "../Other/Navbar";
 import Reveal from "../ui/Reveal";
 import SectionHeading from "../ui/SectionHeading";
 import { Marquee } from "../ui/Marquee";
+import Parallax from "../ui/Parallax";
 
 const categories = [
   {
@@ -96,7 +96,7 @@ const SkillBar = ({ skill, index }) => {
     <li
       ref={ref}
       style={{ transitionDelay: settled ? "0ms" : `${index * 70}ms` }}
-      className={`reveal reveal-up rounded-2xl border border-hairline bg-white/[0.02] px-5 py-4 transition-all duration-700 hover:border-glow-cyan/40 hover:bg-white/[0.045] ${
+      className={`reveal reveal-up rounded-2xl border border-hairline bg-void/70 px-5 py-4 transition-all duration-700 hover:border-glow-cyan/40 hover:bg-void ${
         fill ? "is-visible" : ""
       }`}
     >
@@ -111,7 +111,7 @@ const SkillBar = ({ skill, index }) => {
       </div>
 
       {/* Bar */}
-      <div className="mt-3.5 h-1.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
+      <div className="mt-3.5 h-1.5 w-full overflow-hidden rounded-full bg-ink/[0.07]">
         <div
           className="h-full rounded-full bg-gradient-to-r from-glow-cyan via-glow-blue to-glow-violet transition-[width] duration-1000 ease-out"
           style={{
@@ -130,9 +130,10 @@ const Skills = () => {
 
   return (
     <>
-      <Navbar />
-
-      <section className="px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
+      <section
+        id="skills"
+        className="border-y border-hairline bg-abyss/60 px-4 pb-16 pt-16 sm:px-6 sm:pb-24 sm:pt-24"
+      >
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Skills • What I work with"
@@ -152,8 +153,8 @@ const Skills = () => {
                   aria-pressed={isActive}
                   className={`relative overflow-hidden rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
                     isActive
-                      ? "text-void shadow-[0_12px_30px_-12px_rgba(34,211,238,0.8)]"
-                      : "border border-hairline bg-white/[0.03] text-mist hover:-translate-y-0.5 hover:border-glow-cyan/40 hover:text-ice"
+                      ? "text-white shadow-[0_12px_30px_-14px_rgba(14,116,144,0.85)]"
+                      : "border border-hairline bg-white text-mist shadow-[0_1px_2px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 hover:border-glow-cyan/40 hover:text-ice"
                   }`}
                 >
                   {isActive && (
@@ -178,13 +179,15 @@ const Skills = () => {
           </div>
 
           {/* Stack ticker */}
-          <Reveal
-            as="div"
-            delay={100}
-            className="mt-8 sm:mt-12 border-y border-hairline py-5"
-          >
-            <Marquee items={tickerItems} speed={34} />
-          </Reveal>
+          <Parallax y={22}>
+            <Reveal
+              as="div"
+              delay={100}
+              className="mt-8 border-y border-hairline py-5 sm:mt-12"
+            >
+              <Marquee items={tickerItems} speed={34} />
+            </Reveal>
+          </Parallax>
         </div>
       </section>
     </>

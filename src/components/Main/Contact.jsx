@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navbar from "../Other/Navbar";
 import Reveal from "../ui/Reveal";
 import SectionHeading from "../ui/SectionHeading";
 import {
@@ -39,7 +38,7 @@ const contactLinks = [
 ];
 
 const fieldCls =
-  "w-full rounded-xl border border-hairline bg-white/[0.03] px-4 py-3.5 text-[15px] text-ice placeholder:text-mist/60 outline-none transition-all duration-300 focus:border-glow-cyan/60 focus:bg-white/[0.05] focus:shadow-[0_0_0_4px_rgba(34,211,238,0.12)]";
+  "w-full rounded-xl border border-hairline bg-void/60 px-4 py-3.5 text-[15px] text-ice placeholder:text-mist/80 outline-none transition-all duration-300 focus:border-glow-cyan/60 focus:bg-white focus:shadow-[0_0_0_4px_rgba(14,116,144,0.12)]";
 
 const Contact = () => {
   const [sent, setSent] = useState(false);
@@ -71,9 +70,10 @@ ${message}`;
 
   return (
     <>
-      <Navbar />
-
-      <section className="px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
+      <section
+        id="contact"
+        className="border-t border-hairline bg-abyss/60 px-4 pb-16 pt-16 sm:px-6 sm:pb-24 sm:pt-24"
+      >
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Contact • Let's connect"
@@ -94,11 +94,11 @@ ${message}`;
                   {contactLinks.map(({ label, value, href, Icon }) => {
                     const inner = (
                       <span className="flex items-center gap-4">
-                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-hairline bg-white/[0.03] text-glow-cyan transition-all duration-300 group-hover:border-glow-cyan/50 group-hover:bg-glow-cyan/10">
+                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-hairline bg-void/70 text-glow-cyan transition-all duration-300 group-hover:border-glow-cyan/50 group-hover:bg-glow-cyan/10">
                           <Icon className="h-[18px] w-[18px]" />
                         </span>
                         <span className="min-w-0">
-                          <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-mist/70">
+                          <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-mist">
                             {label}
                           </span>
                           <span className="block truncate text-sm font-medium text-ice transition-colors duration-300 group-hover:text-glow-cyan">
@@ -115,7 +115,7 @@ ${message}`;
                             href={href}
                             target={href.startsWith("http") ? "_blank" : undefined}
                             rel="noreferrer noopener"
-                            className="group flex items-center rounded-2xl border border-transparent p-2 transition-colors duration-300 hover:border-hairline hover:bg-white/[0.03]"
+                            className="group flex items-center rounded-2xl border border-transparent p-2 transition-colors duration-300 hover:border-hairline hover:bg-void/60"
                           >
                             {inner}
                           </a>
@@ -133,8 +133,8 @@ ${message}`;
               {/* Availability card */}
               <div className="card-glow rounded-3xl bg-gradient-to-br from-glow-cyan/[0.08] to-transparent p-5 sm:p-7">
                 <div className="flex items-center gap-2.5">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse-dot" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse-dot" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
                     Currently available
                   </span>
                 </div>
@@ -170,7 +170,7 @@ ${message}`;
                 <div className="mt-7 space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <label className="block">
-                      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist/70">
+                      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist">
                         Your Name
                       </span>
                       <input
@@ -183,7 +183,7 @@ ${message}`;
                     </label>
 
                     <label className="block">
-                      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist/70">
+                      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist">
                         Your Email
                       </span>
                       <input
@@ -197,7 +197,7 @@ ${message}`;
                   </div>
 
                   <label className="block">
-                    <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist/70">
+                    <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-mist">
                       Your Message
                     </span>
                     <textarea
@@ -211,7 +211,7 @@ ${message}`;
                 </div>
 
                 <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-xs text-mist/60 break-words">
+                  <p className="text-xs text-mist break-words">
                     Or email me directly at{" "}
                     <a
                       href="mailto:akpanvictor456@gmail.com"

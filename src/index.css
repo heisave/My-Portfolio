@@ -8,17 +8,18 @@
   --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Palette */
-  --color-void: #05070c;
-  --color-abyss: #080b12;
-  --color-panel: #0c101a;
-  --color-panel-2: #111725;
-  --color-hairline: rgba(255, 255, 255, 0.08);
-  --color-mist: #93a1b5;
-  --color-ice: #e7eefc;
-  --color-glow-cyan: #22d3ee;
-  --color-glow-blue: #38bdf8;
-  --color-glow-violet: #8b5cf6;
+  /* Palette — light mode */
+  --color-void: #f6f8fc; /* page background */
+  --color-abyss: #edf1f8; /* alternating section background */
+  --color-panel: #ffffff;
+  --color-panel-2: #ffffff;
+  --color-ink: #0f172a; /* tint used for subtle surfaces on white */
+  --color-hairline: rgba(15, 23, 42, 0.1);
+  --color-mist: #55647a; /* secondary text (AA on white) */
+  --color-ice: #0e1726; /* primary text */
+  --color-glow-cyan: #0e7490;
+  --color-glow-blue: #0369a1;
+  --color-glow-violet: #7c3aed;
 
   /* Animations */
   --animate-float: float 7s ease-in-out infinite;
@@ -138,7 +139,6 @@
    ============================================================ */
 @layer base {
   html {
-    scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -151,8 +151,8 @@
   }
 
   ::selection {
-    background: rgba(34, 211, 238, 0.3);
-    color: #fff;
+    background: rgba(14, 116, 144, 0.22);
+    color: var(--color-ice);
   }
 
   /* Slim, themed scrollbars */
@@ -161,15 +161,15 @@
     height: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-void);
+    background: #eef2f8;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1c2536;
+    background: #c3cede;
     border-radius: 999px;
-    border: 2px solid var(--color-void);
+    border: 2px solid #eef2f8;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #2b3a55;
+    background: #a6b4ca;
   }
 
   :focus-visible {
@@ -177,6 +177,28 @@
     outline-offset: 3px;
     border-radius: 4px;
   }
+
+  /* Keep anchored sections clear of the fixed navbar (native-scroll fallback) */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+/* ============================================================
+   LENIS — smooth scroll setup (https://github.com/darkroomengineering/lenis)
+   ============================================================ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 /* ============================================================
@@ -187,11 +209,11 @@
 @utility text-gradient {
   background-image: linear-gradient(
     100deg,
-    #22d3ee 0%,
-    #38bdf8 25%,
-    #a78bfa 50%,
-    #22d3ee 75%,
-    #38bdf8 100%
+    #0e7490 0%,
+    #0369a1 25%,
+    #7c3aed 50%,
+    #0e7490 75%,
+    #0369a1 100%
   );
   background-size: 250% auto;
   -webkit-background-clip: text;
@@ -202,7 +224,7 @@
 
 /* Static gradient text (no movement) */
 @utility text-gradient-solid {
-  background-image: linear-gradient(100deg, #22d3ee, #38bdf8 45%, #a78bfa);
+  background-image: linear-gradient(100deg, #0e7490, #0369a1 45%, #7c3aed);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -210,16 +232,17 @@
 
 /* Frosted glass panel */
 @utility glass {
-  background: rgba(10, 14, 22, 0.6);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
 }
 
 /* Hairline card with hover glow */
 @utility card-glow {
   position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.65));
   border: 1px solid var(--color-hairline);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 16px 40px -28px rgba(15, 23, 42, 0.35);
   transition:
     transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.35s ease,
@@ -231,21 +254,21 @@
 @utility card-glow-hover {
   &:hover {
     transform: translateY(-6px);
-    border-color: rgba(34, 211, 238, 0.4);
+    border-color: rgba(14, 116, 144, 0.35);
     /* Cancel any scroll-reveal stagger delay so hover feels instant */
     transition-delay: 0ms;
     box-shadow:
-      0 18px 50px -18px rgba(0, 0, 0, 0.9),
-      0 0 0 1px rgba(34, 211, 238, 0.12),
-      0 10px 60px -20px rgba(34, 211, 238, 0.45);
+      0 22px 46px -24px rgba(15, 23, 42, 0.28),
+      0 0 0 1px rgba(14, 116, 144, 0.16),
+      0 18px 60px -26px rgba(14, 116, 144, 0.5);
   }
 }
 
 /* Repeating technical grid backdrop */
 @utility grid-bg {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(15, 23, 42, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.055) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
@@ -320,9 +343,10 @@
   padding: 0.85rem 1.6rem;
   font-weight: 600;
   color: var(--color-ice);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
   transition:
     transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.3s ease,
@@ -333,9 +357,9 @@
 @utility btn-ghost-hover {
   &:hover {
     transform: translateY(-3px);
-    border-color: rgba(34, 211, 238, 0.55);
-    background: rgba(34, 211, 238, 0.08);
-    box-shadow: 0 14px 34px -18px rgba(34, 211, 238, 0.8);
+    border-color: rgba(14, 116, 144, 0.5);
+    background: rgba(14, 116, 144, 0.08);
+    box-shadow: 0 14px 34px -18px rgba(14, 116, 144, 0.7);
   }
 }
 
@@ -345,15 +369,15 @@
   align-items: center;
   max-width: 100%;
   border-radius: 999px;
-  border: 1px solid rgba(34, 211, 238, 0.25);
-  background: rgba(34, 211, 238, 0.07);
+  border: 1px solid rgba(14, 116, 144, 0.25);
+  background: rgba(14, 116, 144, 0.07);
   padding: 0.35rem 0.75rem;
   font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   line-height: 1.35;
   text-transform: uppercase;
-  color: #67e8f9;
+  color: #0e7490;
   @media (min-width: 640px) {
     padding: 0.4rem 0.95rem;
     font-size: 0.78rem;
@@ -371,7 +395,7 @@
     content: "";
     width: 1.25rem;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #22d3ee);
+    background: linear-gradient(90deg, transparent, #0e7490);
   }
   @media (min-width: 640px) {
     gap: 0.75rem;
@@ -409,6 +433,11 @@
   .reveal-blur {
     filter: blur(10px);
   }
+  /* 3D scroll entrance: element rises out of the page plane */
+  .reveal-3d {
+    transform: perspective(1200px) translate3d(0, 70px, -140px) rotateX(16deg);
+    transform-origin: 50% 100%;
+  }
   .reveal.is-visible {
     opacity: 1;
     transform: none;
@@ -431,8 +460,8 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(34, 211, 238, 0.45),
-      rgba(139, 92, 246, 0.35),
+      rgba(14, 116, 144, 0.5),
+      rgba(124, 58, 237, 0.35),
       transparent
     );
   }
@@ -445,7 +474,8 @@
   .reveal-left,
   .reveal-right,
   .reveal-zoom,
-  .reveal-blur {
+  .reveal-blur,
+  .reveal-3d {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;

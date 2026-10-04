@@ -15,7 +15,7 @@ const Marquee = ({ items = [], speed = 32, className = "" }) => {
           <span
             key={`${item}-${i}`}
             aria-hidden={i >= items.length}
-            className="mx-5 inline-flex shrink-0 items-center gap-3 whitespace-nowrap font-display text-lg font-semibold tracking-tight text-mist/70 sm:text-xl"
+            className="mx-5 inline-flex shrink-0 items-center gap-3 whitespace-nowrap font-display text-lg font-semibold tracking-tight text-mist sm:text-xl"
           >
             <span className="h-1.5 w-1.5 rotate-45 bg-glow-cyan/70" />
             {item}
