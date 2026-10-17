@@ -109,10 +109,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-6 text-xs text-mist sm:flex-row">
-        <p>© {new Date().getFullYear()} Akpan Victor. Built with React & Tailwind CSS.</p>
-        <p className="font-mono">
-          Designed &amp; developed <span className="text-glow-cyan">with caffeine</span> ☕
-        </p>
+        <p>© {new Date().getFullYear()} Akpan Victor.</p>
       </div>
     </div>
   </footer>

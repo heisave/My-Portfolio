@@ -1,4 +1,4 @@
-import cvFile from "../../assets/AkpanVictorCv.pdf?url";
+import cvFile from "../../assets/myportfoliocv.pdf?url";
 import Reveal from "../ui/Reveal";
 import ScrollLink from "../ui/ScrollLink";
 import Parallax from "../ui/Parallax";
@@ -15,7 +15,7 @@ import {
 const headline = ["Building", "products", "that", "feel"];
 
 const stats = [
-  { value: 15, suffix: "+", label: "Projects shipped" },
+  // { value: 5, suffix: "+", label: "Projects shipped" },
   { value: 3, suffix: "+", label: "Years building" },
   { value: 100, suffix: "%", label: "Responsive focus" },
 ];
@@ -31,7 +31,7 @@ const socials = [
 const floatingTech = [
   { name: "React", pos: "top-1 -left-3 sm:-left-10", delay: "0s" },
   { name: "Tailwind", pos: "bottom-8 -right-3 sm:-right-14", delay: "-2.4s" },
-  { name: "JavaScript", pos: "-bottom-3 left-4 sm:-bottom-2 sm:left-8", delay: "-4.8s" },
+  { name: "JavaScript/Typescript", pos: "-bottom-3 left-4 sm:-bottom-2 sm:left-8", delay: "-4.8s" },
 ];
 
 const Hero = () => {
@@ -90,8 +90,8 @@ const Hero = () => {
 
           {/* Intro */}
           <Reveal as="p" delay={760} className="mt-7 max-w-xl text-base leading-relaxed text-mist sm:text-lg">
-            Frontend developer from Nigeria specializing in React and
-            JavaScript. I build responsive, production-focused web interfaces
+            Frontend engineer from Nigeria specializing in React and
+            JavaScript/Typescript. I build responsive, production-focused web interfaces
             with a strong eye for usability, clean code, and detail — from
             idea to deployment.
           </Reveal>
