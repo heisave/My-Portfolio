@@ -35,7 +35,7 @@ const timeline = [
 ];
 
 const stats = [
-  { value: 15, suffix: "+", label: "Projects" },
+  // { value: 15, suffix: "+", label: "Projects" },
   { value: 5, suffix: "", label: "Core tools" },
   { value: 24, suffix: "/7", label: "Curiosity" },
 ];
@@ -121,10 +121,9 @@ const About = () => {
                   My Story
                 </h3>
                 <p className="mt-4 text-[15px] leading-relaxed text-mist">
-                  Today I'm focused on frontend development with React and
-                  JavaScript. I've worked on real projects, collaborated with
-                  developers, used Git in team workflows, and shipped products
-                  that people can actually open and use.
+                These days I'm focused on frontend development with React, Next.js, and
+TypeScript. I've shipped real projects, worked in team codebases with Git, and
+built things people can open in a browser and use today.
                 </p>
                 <p className="mt-4 text-[15px] leading-relaxed text-mist">
                   I'm looking for opportunities where I can contribute to a real
